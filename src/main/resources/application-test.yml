@@ -1,0 +1,57 @@
+spring:
+  #配置数据库
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/smart_farming_test?useSSL=false&characterEncoding=utf-8&createDatabaseIfNotExist=true
+    username: root
+    password: sdpm@1234!
+  #配置jpa
+  jpa:
+    show-sql: true
+    database: mysql
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+
+
+auth:
+  username: admin
+  password: sfs@sdpm!
+server:
+  servlet:
+    context-path:
+  port: 18818
+
+sfs:
+  token: 51b20eb3
+mqtt:
+  ip: "127.0.0.1"
+  outerip: "154.8.222.152"
+  url: "tcp://${mqtt.ip}:1883"
+  outerurl: "tcp://${mqtt.outerip}:1883"
+  api-prefix: "http://${mqtt.ip}:8081/api/v4"
+  #  admin/public
+  api-auth: "Basic YWRtaW46cHVibGlj"
+  username: "emqx1234!"
+  password: "emqx"
+  client-id: "sfs-cloud-${sfs.token}-1"
+  device-client-id-prefix: "sfs-device-${sfs.token}-"
+  rtc-video-client-id-prefix: "sfs-rtc-video-${sfs.token}-"
+  rtc-data-client-id-prefix: "sfs-rtc-data-${sfs.token}-"
+  event-topic-prefix: "sfs/${sfs.token}/events/"
+  command-topic-prefix: "sfs/${sfs.token}/commands/"
+  rtc-video-topic-prefix: "sfs/${sfs.token}/rtc/video/"
+  rtc-data-topic-prefix: "sfs/${sfs.token}/rtc/data/"
+  qos: 1
+  listen-topics:
+    events: "${mqtt.event-topic-prefix}+"
+    commands: "${mqtt.command-topic-prefix}+"
+  file-persistence-path: "mqtt.persistence"
+ice:
+  server:
+    urls: "turn:154.8.222.152:3478"
+    username: "kurento"
+    credential: "kurento!1234"
+logging.level.org.springframework.web.filter.CommonsRequestLoggingFilter: DEBUG
+
+

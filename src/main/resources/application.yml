@@ -1,0 +1,15 @@
+spring.mvc.static-path-pattern: /**
+
+spring:
+  jpa:
+    properties:
+      hibernate:
+        dialect: com.sdpm.smart.farming.config.DefaultMySQL57InnoDBDialect
+        # https://stackoverflow.com/questions/25362831/solve-hibernate-lazy-init-issue-with-hibernate-enable-lazy-load-no-trans
+        enable_lazy_load_no_trans: true
+#        # 解决Multiple representations of the same entity [XXX#1] are being merged.错误
+        event:
+          merge:
+            entity_copy_observer: allow
+  profiles:
+    active: dev

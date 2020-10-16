@@ -1,0 +1,113 @@
+{
+  "devices": [
+    {
+      "type": "controller",
+      "label": "控制器",
+      "description": "控制端设备"
+    },
+    {
+      "type": "machinery",
+      "label": "机械装置",
+      "description": "被控端机械装置"
+    }
+  ],
+  "commands": [
+    {
+      "type": "binds",
+      "label": "绑定信息",
+      "description": "向设备发送绑定设备的接入凭证"
+    },
+    {
+      "type": "heartbeat",
+      "label": "心跳周期包",
+      "description": "定期向农机发送心跳包，其中包含发送时的毫秒级时间戳"
+    },
+    {
+      "type": "shutdown",
+      "label": "关机",
+      "description": "向设备发送关机指令"
+    },
+    {
+      "type": "control-mode",
+      "label": "控制模式",
+      "description": "向农机下发控制模式，standby为静止模式，operating为远程操作模式，tracking为自动寻迹模式"
+    },
+    {
+      "type": "parallel-drive",
+      "label": "平行驾驶",
+      "description": "向农机下发平行驾驶指令，其中包含方向盘转角，刹车，油门等信息"
+    },
+    {
+      "type": "auto-drive",
+      "label": "自动寻迹",
+      "description": "向农机下发自动寻迹指令，其中包含路线和速度信息"
+    }
+  ],
+  "events": [
+    {
+      "type": "online",
+      "label": "上线",
+      "description": "农机设备上线事件，记录上线时间戳"
+    },
+    {
+      "type": "offline",
+      "label": "下线",
+      "description": "农机设备下线事件，记录下线时间戳"
+    },
+    {
+      "type": "location",
+      "label": "位置",
+      "description": "农机位置上报事件"
+    },
+    {
+      "type": "left-track-velocity",
+      "label": "左履带车速反馈",
+      "description": "针对履带农机左侧履带车速上报事件，单位为百分比"
+    },
+    {
+      "type": "right-track-velocity",
+      "label": "右履带车速反馈",
+      "description": "针对履带农机右侧履带车速上报事件，单位为百分比"
+    },
+    {
+      "type": "velocity",
+      "label": "车速反馈",
+      "description": "农机车速上报事件，单位为m/s"
+    },
+    {
+      "type": "power",
+      "label": "电量反馈",
+      "description": "农机电量上报事件，单位为百分比"
+    },
+    {
+      "type": "delay",
+      "label": "信号延迟",
+      "description": "农机信号延迟上报事件，单位为ms"
+    },
+    {
+      "type": "dbline-state",
+      "label": "线控状态",
+      "description": "农机线控状态上报事件"
+    },
+    {
+      "type": "control-state",
+      "label": "控制状态",
+      "description": "农机被控状态上报事件，standby为静止状态，operating为远程操作状态，tracking为自动寻迹状态"
+    },
+    {
+      "type": "brake",
+      "label": "刹车量",
+      "description": "农机刹车量上报事件，范围为0-100"
+    },
+    {
+      "type": "throttle",
+      "label": "油门量",
+      "description": "农机油门量上报事件，范围为0-100"
+    },
+    {
+      "type": "steering",
+      "label": "方向盘转角",
+      "description": "农机方向盘转角上报事件，其中包括反馈转角rep和给定转角cmd"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+syntax = "proto3";
+option java_package = "com.sdpm.smart.farming.devicemgr.message";
+option java_outer_classname = "DeviceMessageProto";
+message DeviceMessage {
+  string type = 1;
+  bytes body = 2;
+  int64 created = 3;
+}

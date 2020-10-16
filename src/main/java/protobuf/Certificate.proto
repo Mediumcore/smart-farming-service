@@ -1,0 +1,22 @@
+syntax = "proto3";
+option java_package = "com.sdpm.smart.farming.devicemgr.certificate";
+option java_outer_classname = "CertificateProto";
+message Certificate {
+  int32  deviceId = 1;
+  string url = 2;
+  int32 qos = 3;
+  string username = 4;
+  string password = 5;
+  string clientId = 6;
+  string eventTopic = 7;
+  string commandTopic = 8;
+  string rtcVideoClientId = 9;
+  string rtcVideoReqTopic = 10;
+  string rtcVideoAnsTopic = 11;
+  string rtcDataClientId = 12;
+  string rtcDataReqTopic = 13;
+  string rtcDataAnsTopic = 14;
+  string iceServerUrls = 15;
+  string iceServerUsername = 16;
+  string iceServerCredential = 17;
+}
