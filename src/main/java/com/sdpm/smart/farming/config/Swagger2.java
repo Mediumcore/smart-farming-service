@@ -27,10 +27,14 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 public class Swagger2 extends WebMvcConfigurationSupport {
     @Value("${token.id}")
     private String tokenId;
+    @Value("${jwt.filter.regular}")
+    private String jwtFilterRegular;
+
     @Override
     protected void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new JwtAuthenticationInterceptor(tokenId));
+        registry.addInterceptor(new JwtAuthenticationInterceptor(tokenId, jwtFilterRegular));
     }
+
     @Bean
     public Docket createRestApi() {
         return new Docket(DocumentationType.SWAGGER_2).apiInfo(apiInfo())

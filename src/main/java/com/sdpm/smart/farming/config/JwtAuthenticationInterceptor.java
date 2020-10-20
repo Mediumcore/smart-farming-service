@@ -18,15 +18,17 @@ import java.io.PrintWriter;
  */
 public class JwtAuthenticationInterceptor extends HandlerInterceptorAdapter {
     private final String tokenId;
+    private final String jwtRegular;
 
-    public JwtAuthenticationInterceptor(String tokenId) {
+    public JwtAuthenticationInterceptor(String tokenId,String jwtRegular) {
         this.tokenId = tokenId;
+        this.jwtRegular = jwtRegular;
     }
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         String path = request.getServletPath();
-        if (path.matches("(/)|(.*((.css)|(.js)|(.html)|(images)|(webhook)|(ws)|(auth)|(kml/upload)|(export)|(.ttf)|(.woff)).*)")) {
+        if (path.matches(jwtRegular)) {
             // 不需要拦截
             return true;
         } else {
