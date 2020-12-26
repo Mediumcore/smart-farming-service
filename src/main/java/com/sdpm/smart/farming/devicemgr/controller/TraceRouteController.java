@@ -112,7 +112,7 @@ public class TraceRouteController {
         String routeContent = new String(file.getBytes(), StandardCharsets.UTF_8);
         List<Object> lines = Arrays
                 .stream(routeContent.split("\n"))
-                .map(l -> Arrays.stream(l.split(" ")).map(Float::parseFloat).toArray())
+                .map(l -> Arrays.stream(l.split(" ")).map(Double::parseDouble).toArray())
                 .collect(Collectors.toList());
         JSONArray locations = new JSONArray(lines);
         TraceRouteVO traceRouteVO = new TraceRouteVO();

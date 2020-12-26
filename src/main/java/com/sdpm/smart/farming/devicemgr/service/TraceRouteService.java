@@ -78,13 +78,13 @@ public class TraceRouteService {
                 String name = placeMark.getString("name");
                 JSONObject lookAt = placeMark.getJSONObject("LookAt");
                 String coordinates = placeMark.getJSONObject("LineString").getString("coordinates");
-                List<float[]> lines = Arrays.stream(coordinates.split(" ")).map(s -> {
+                List<double[]> lines = Arrays.stream(coordinates.split(" ")).map(s -> {
                     String[] tokens = s.split(",");
-                    return new float[]{Float.parseFloat(tokens[0]), Float.parseFloat(tokens[1])};
+                    return new double[]{Double.parseDouble(tokens[0]), Double.parseDouble(tokens[1])};
                 }).collect(Collectors.toList());
 
                 if (lookAt != null) {
-                    float[] center = new float[]{lookAt.getFloat("longitude"), lookAt.getFloat("latitude")};
+                    double[] center = new double[]{lookAt.getDouble("longitude"), lookAt.getDouble("latitude")};
                     traceRoute.setCenter(JSON.toJSONString(center));
                 } else {
                     if (!lines.isEmpty()) {

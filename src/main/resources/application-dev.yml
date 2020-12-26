@@ -1,5 +1,5 @@
 token.id: 10002
-jwt.filter.regular: "(/)|(.*((.css)|(.js)|(.html)|(images)|(webhook)|(ws)|(auth)|(kml/upload)|(export)|(.ttf)|(.woff)).*)"
+jwt.filter.regular: "(/)|(.*((.css)|(.js)|(.html)|(images)|(webhook)|(ws)|(auth)|(kml/upload)|(traceroute/import)|(export)|(.ttf)|(.woff)).*)"
 sfs:
   token: ${token.id}
 # 当前租户的id
